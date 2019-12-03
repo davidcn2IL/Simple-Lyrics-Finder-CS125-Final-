@@ -19,8 +19,8 @@ public class Main2Activity extends AppCompatActivity {
 
         // Start, Artist, Song
         Button beginSong = findViewById(R.id.beginSong);
-        RadioButton artistBtn = findViewById(R.id.searchArtist);
-        RadioButton songBtn = findViewById(R.id.searchSong);
+        final RadioButton artistBtn = findViewById(R.id.searchArtist);
+        final RadioButton songBtn = findViewById(R.id.searchSong);
 
         beginSong.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +37,7 @@ public class Main2Activity extends AppCompatActivity {
 
             public void onClick(View v) {
                 artistCond = true;
+                songBtn.setChecked(false);
                 System.out.println("Artist clicked");
             }
         });
@@ -46,6 +47,7 @@ public class Main2Activity extends AppCompatActivity {
 
             public void onClick(View v) {
                 songCond = true;
+                artistBtn.setChecked(false);
                 System.out.println("Song clicked");
             }
         });
