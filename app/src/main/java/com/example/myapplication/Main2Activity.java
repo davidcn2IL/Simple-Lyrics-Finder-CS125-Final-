@@ -7,6 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 public class Main2Activity extends AppCompatActivity {
 
     private boolean artistCond = false;
@@ -21,6 +31,7 @@ public class Main2Activity extends AppCompatActivity {
         Button beginSong = findViewById(R.id.beginSong);
         final RadioButton artistBtn = findViewById(R.id.searchArtist);
         final RadioButton songBtn = findViewById(R.id.searchSong);
+
 
         beginSong.setOnClickListener(new View.OnClickListener() {
             @Override
