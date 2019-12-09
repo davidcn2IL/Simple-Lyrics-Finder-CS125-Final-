@@ -10,12 +10,23 @@
         android:id="@+id/search"
         android:layout_width="301dp"
         android:layout_height="45dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Input text here"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/search2"
+        android:layout_width="301dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,33 +34,53 @@
         android:id="@+id/beginSong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="196dp"
+        android:layout_marginLeft="196dp"
+        android:layout_marginTop="116dp"
         android:text="Start"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioGroup
-        android:layout_width="77dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="51dp"
-        android:translationX="5dp"
-        android:translationY="-20dp"
+    <TextView
+        android:id="@+id/artistLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Artist"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/searchArtist"
+    <TextView
+        android:id="@+id/songLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Song"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/artistLabel" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:translationY="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search2">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Artist" />
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/searchSong"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Song" />
-    </RadioGroup>
+            <TextView
+                android:id="@+id/lyrics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lyrics will show up here :)" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

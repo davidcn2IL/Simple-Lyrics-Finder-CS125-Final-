@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
+import com.android.volley.ClientError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -15,12 +17,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Main2Activity extends AppCompatActivity {
 
     private boolean artistCond = false;
     private boolean songCond = false;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,42 +33,62 @@ public class Main2Activity extends AppCompatActivity {
 
         // Start, Artist, Song
         Button beginSong = findViewById(R.id.beginSong);
-        final RadioButton artistBtn = findViewById(R.id.searchArtist);
-        final RadioButton songBtn = findViewById(R.id.searchSong);
 
 
         beginSong.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View v) {
-
-                playSong();
+                searchSong();
 
             }
         });
 
-        artistBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-
-            public void onClick(View v) {
-                artistCond = true;
-                songBtn.setChecked(false);
-                System.out.println("Artist clicked");
-            }
-        });
-
-        songBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-
-            public void onClick(View v) {
-                songCond = true;
-                artistBtn.setChecked(false);
-                System.out.println("Song clicked");
-            }
-        });
     }
 
-    private void playSong() {
-        System.out.println("Play Song clicked");
+    private void searchSong() {
+        url = "https://api.lyrics.ovh/v1/";
+
+        TextView artist = findViewById(R.id.search);
+        TextView song = findViewById(R.id.search2);
+
+        String artistStr = artist.getText().toString();
+        String songStr = song.getText().toString();
+
+        System.out.println("the input was: " + artistStr + " " + songStr);
+        url = url + artistStr + "/" + songStr;
+
+        final TextView test = findViewById(R.id.lyrics);
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            String holder = response.getString("lyrics");
+                            test.setText(holder);
+                        } catch (JSONException e){
+                            System.out.println("JSON error: " + e);
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO: Handle error
+                        if (error instanceof ClientError) {
+                            test.setText("No such song / artist exists!");
+                        } else {
+                            System.out.println("Other error: " + error);
+                        }
+                    }
+                });
+
+        // Add the request to the RequestQueue.
+        queue.add(jsonObjectRequest);
+
     }
 }
