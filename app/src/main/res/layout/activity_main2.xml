@@ -58,8 +58,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:text="Artist"
+        android:layout_marginTop="16dp"
+        android:text="Artist:"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,10 +69,12 @@
         android:id="@+id/songLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
-        android:text="Song"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="24dp"
+        android:text="Song:"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/artistLabel" />
 
@@ -91,7 +95,8 @@
                 android:id="@+id/lyrics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lyrics will show up here :)" />
+                android:text="Lyrics will show up here :)"
+                android:textColor="#000000" />
         </LinearLayout>
     </ScrollView>
 
