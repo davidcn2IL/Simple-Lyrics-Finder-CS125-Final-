@@ -27,6 +27,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,6 +40,7 @@
         android:layout_marginTop="72dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#F0EFEF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +74,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginTop="28dp"
         android:text="Artist:"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -85,7 +87,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="24dp"
         android:text="Song:"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/artistLabel" />
