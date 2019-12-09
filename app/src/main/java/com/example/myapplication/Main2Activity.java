@@ -72,7 +72,7 @@ public class Main2Activity extends AppCompatActivity {
         System.out.println("the input was: " + artistStr + " " + songStr);
         url = url + artistStr + "/" + songStr;
 
-        final TextView test = findViewById(R.id.lyrics);
+        final TextView text = findViewById(R.id.lyrics);
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -82,7 +82,7 @@ public class Main2Activity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             String holder = response.getString("lyrics");
-                            test.setText(holder);
+                            text.setText(holder);
                         } catch (JSONException e){
                             System.out.println("JSON error: " + e);
                         }
@@ -94,7 +94,7 @@ public class Main2Activity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         // TODO: Handle error
                         if (error instanceof ClientError) {
-                            test.setText("No such song / artist exists!");
+                            text.setText("No such song / artist exists! (or at least, in their database...)");
                         } else {
                             System.out.println("Other error: " + error);
                         }
