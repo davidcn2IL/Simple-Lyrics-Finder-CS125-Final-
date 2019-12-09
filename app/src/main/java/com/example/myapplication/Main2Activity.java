@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.android.volley.ClientError;
@@ -14,7 +13,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -32,14 +30,30 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         // Start, Artist, Song
-        Button beginSong = findViewById(R.id.beginSong);
+        Button startSearch = findViewById(R.id.startSearch);
+        Button clearSearch = findViewById(R.id.clearSearch);
 
 
-        beginSong.setOnClickListener(new View.OnClickListener() {
+        startSearch.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View v) {
                 searchSong();
+
+            }
+        });
+
+        clearSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                TextView artist = findViewById(R.id.search);
+                TextView song = findViewById(R.id.search2);
+                TextView lyrics = findViewById(R.id.lyrics);
+
+                artist.setText("");
+                song.setText("");
+                lyrics.setText("");
 
             }
         });
