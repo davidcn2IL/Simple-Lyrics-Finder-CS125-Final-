@@ -19,9 +19,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Main2Activity extends AppCompatActivity {
-
-    private boolean artistCond = false;
-    private boolean songCond = false;
     private String url;
 
     @Override
